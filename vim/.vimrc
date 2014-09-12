@@ -18,6 +18,16 @@ Plugin 'plasticboy/vim-markdown'
 " 转化编码的插件  
 Plugin 'MwumLi/fencview'
 
+" IDE的配置  
+" 标签浏览器
+Plugin 'vim-scripts/taglist.vim'
+
+" 窗口管理器  
+Plugin 'MwumLi/WinManager'
+
+" 缓冲区管理器
+Plugin 'vim-scripts/minibufexpl.vim'
+
 call vundle#end()			"required 
 filetype plugin indent on	"required
 " Vundle配置结束
@@ -80,5 +90,39 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_initial_foldlevel=1
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 
+" taglist配置  
+let Tlist_Ctags_Cmd='ctags'	"taglist依赖于ctags.设置ctags位置  
+let Tlist_Use_Right_Window=0	"窗口显示位置:0(左边) 1(右边)
+let Tlist_Show_One_File=1	"显示文件个数:0(多个) 1(一个)
+"非当前文件，函数列表折叠隐藏  
+let Tlist_File_Fold_Auto_Close=1 
+"打开taglist光标停留在taglist窗口
+let Tlist_GainFocus_On_ToggleOpen=1 
+" 当taglist是最后一个分割窗口时，自动退出vim
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Process_File_Always=1	"实施更新tags:1(是)0(否)  
+let Tlist_Inc_Winwidth=0  
+nmap tl :Tlist<CR>		"按下tl打开标签浏览器
+
+" 按下<F5>生成tags,并且更新taglist
+map <F5> :!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .<CR><CR> :TlistUpdate<CR>
+set tags=./tags
+
+" WinManager配置  
+" 设置要管理的插件
+let g:winManagerWindowLayout='FileExplorer,TagList' 
+" 如果所有编辑文件都关闭了，退出vim
+let g:persistentBehaviour=0 
+let g:defaultExplorer=1
+let g:winManagerWidth=25
+nmap wm :WMToggle<cr>
+
+"minibufexpl配置  
+" 按下Ctrl+h/j/k/l，可以切换到当前>窗口的上下左右窗口
+let g:miniBufExplMapWindowNavVim = 1    
+" 按下Ctrl+arrow，可以切换到当前窗口的上下左右窗口
+let g:miniBufExplMapWindowNavArrows = 1 
+" 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
+let g:miniBufExplModSelTarget = 1       "
 
 
