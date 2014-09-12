@@ -8,6 +8,8 @@ call vundle#begin()
 
 " Vundle自身管理自己,rquired
 Plugin 'gmarik/Vundle.vim'
+" 一款增强vim状态栏的插件
+Plugin 'Lokaltog/vim-powerline'
 
 call vundle#end()			"required 
 filetype plugin indent on	"required
@@ -59,5 +61,11 @@ endfunction
 nmap ,c :call Set_CursorColumn()<CR>
 
 
+" Vundle管理的插件的配置  
+" powerline配置  
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'unicode'
+set encoding=utf8
 
 
