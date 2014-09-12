@@ -15,6 +15,9 @@ Plugin 'Lokaltog/vim-powerline'
 " Markdown插件  
 Plugin 'plasticboy/vim-markdown'
 
+" 转化编码的插件  
+Plugin 'MwumLi/fencview'
+
 call vundle#end()			"required 
 filetype plugin indent on	"required
 " Vundle配置结束
