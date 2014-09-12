@@ -9,6 +9,11 @@ call vundle#begin()
 " Vundle自身管理自己,rquired
 Plugin 'gmarik/Vundle.vim'
 
+"l9 is a Vim-script library, 
+"which provides some utility functions and commands
+"for programming in Vim.
+Plugin 'vim-scripts/L9'
+
 " 一款增强vim状态栏的插件
 Plugin 'Lokaltog/vim-powerline'
 
@@ -27,6 +32,12 @@ Plugin 'MwumLi/WinManager'
 
 " 缓冲区管理器
 Plugin 'vim-scripts/minibufexpl.vim'
+
+"Web环境  
+" css颜色预览
+Plugin 'gorodinskiy/vim-coloresque'
+"Plugin 'othree/html5.vim'
+Plugin 'rkumar/html.vim'
 
 call vundle#end()			"required 
 filetype plugin indent on	"required
