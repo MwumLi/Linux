@@ -8,8 +8,12 @@ call vundle#begin()
 
 " Vundle自身管理自己,rquired
 Plugin 'gmarik/Vundle.vim'
+
 " 一款增强vim状态栏的插件
 Plugin 'Lokaltog/vim-powerline'
+
+" Markdown插件  
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()			"required 
 filetype plugin indent on	"required
@@ -67,5 +71,11 @@ set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'unicode'
 set encoding=utf8
+
+" Markdown配置  
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_initial_foldlevel=1
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
+
 
 
