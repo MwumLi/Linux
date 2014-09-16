@@ -43,6 +43,9 @@ call vundle#end()			"required
 filetype plugin indent on	"required
 " Vundle配置结束
 
+" 颜色主题 
+colorscheme molokai
+
 " 使.vimrc配置生效
 nmap ,s :source $HOME/.vimrc<cr>
 

@@ -8,7 +8,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir -p ~/.vim/colors &&
 cp vim/colors/molokai.vim ~/.vim/colors/
 
-mv vim/.vimrc ~/.vimrc		"移动.vimrc到你的home目录
+mv vim/.vimrc ~/.vimrc		#移动.vimrc到你的home目录
 
 
 
