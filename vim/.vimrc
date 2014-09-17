@@ -1,7 +1,7 @@
 set nocompatible	"be iMproved, required
 filetype off		"required
 
-" 开始Vundle的管理
+" ********************开始Vundle的管理***************************
 " set the runtime path to include Vundle and initialize 
 set rtp+=~/.vim/bundle/Vundle.vim 
 call vundle#begin()
@@ -39,6 +39,9 @@ Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'othree/html5.vim'
 "Plugin 'rkumar/html.vim'
 
+" 头文件和源码切换  
+Plugin 'vim-scripts/a.vim'
+
 " 补全插件
 Plugin 'vim-scripts/OmniCppComplete'
 "终极补全插件 
@@ -49,9 +52,13 @@ Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 " 一些代码仓库 
 Plugin 'honza/vim-snippets'
+
+" 语义分析
+Plugin 'scrooloose/syntastic'
+
 call vundle#end()			"required 
 filetype plugin indent on	"required
-" Vundle配置结束
+" *****************Vundle配置结束******************
 
 " 颜色主题 
 colorscheme molokai
@@ -151,6 +158,9 @@ let g:miniBufExplMapWindowNavArrows = 1
 " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
 let g:miniBufExplModSelTarget = 1       "
 
+" a.vim的配置
+inoremap <F10> <ESC>:A<CR>
+noremap <F10>  :A<CR>  
 "omnicppcomplete配置
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -209,4 +219,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/' 
+
+
 
