@@ -39,6 +39,8 @@ Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'othree/html5.vim'
 "Plugin 'rkumar/html.vim'
 
+" 补全插件
+Plugin 'vim-scripts/OmniCppComplete'
 "终极补全插件 
 Plugin 'Shougo/neocomplete.vim'
 "插入代码片段，辅助neocomplete
@@ -128,7 +130,9 @@ nmap tl :Tlist<CR>		"按下tl打开标签浏览器
 
 " 按下<F5>生成tags,并且更新taglist
 map <F5> :!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .<CR><CR> :TlistUpdate<CR>
-set tags=./tags
+set tags +=/usr/include/tags 	
+set tags +=/usr/include/c++/tags 
+set tags +=./tags
 
 " WinManager配置  
 " 设置要管理的插件
@@ -146,6 +150,19 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
 let g:miniBufExplModSelTarget = 1       "
+
+"omnicppcomplete配置
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1 
+let OmniCpp_ShowPrototypeInAbbr = 1 " 显示函数参数列表 
+let OmniCpp_MayCompleteDot = 1   " 输入 .  后自动补全
+let OmniCpp_MayCompleteArrow = 1 " 输入 -> 后自动补全 
+let OmniCpp_MayCompleteScope = 1 " 输入 :: 后自动补全 
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" 自动关闭补全窗口 
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif 
+set completeopt=menuone,menu,longest
 
 "neocomplete配置  
 " Use neocomplete
