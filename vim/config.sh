@@ -85,7 +85,7 @@ else
 	echo "~/.vim/ftplugin 创建成功"
 fi
 # build simplified Chinese help document
-tar -xvf ./vimcdoc-1.9.0.tar.gz && cd vimcdoc-1.9.0 && ./vimcdoc.sh 
+tar -xvf ./vimcdoc-1.9.0.tar.gz && cd vimcdoc-1.9.0 && ./vimcdoc.sh -I
 if [ $? -eq 0 ] ; then 
 	echo "中文帮助文档建立完毕"
 	echo "你可以在vim中通过',h'开启中文/英文文档"
