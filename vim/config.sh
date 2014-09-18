@@ -35,9 +35,9 @@ fi
 # create ~/.vim/colors
 mkdir -p ~/.vim/colors 
 error=$?
-if [ $error -eq 1 ] || [$error -eq 0];then 
+if [ $error -eq 1 ] || [ $error -eq 0 ];then 
 	cp ./colors/molokai.vim ~/.vim/colors/ 
-	if [ $? -eq 0]; then 
+	if [ $? -eq 0 ]; then 
 		echo "配色方案构建成功"
 		echo "如果你不喜欢，请你使用colorschem自定义"
 		echo "Linux内建scheme位于:/usr/share/vim/vim74/colors"
