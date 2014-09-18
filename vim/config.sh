@@ -8,8 +8,9 @@ if [ $error -eq 1 ] || [ $error -eq 0 ]; then
 	
 	echo "~/.vim/bundle 已存在"
 	# clone plugin Vundle into ~/bundle/
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	if [ $? -eq 0 ]; then 
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim 2>/dev/null
+	error=$?
+	if [ $error -eq 0 ] || [ $error -eq 128 ]; then 
 		echo "Vim管理插件Vundle安装成功"
 	else
 		echo "Vim管理插件Vundle安装失败"
