@@ -4,7 +4,7 @@ error=0
 # create~/.vim/bundle
 mkdir -p ~/.vim/bundle 
 error=$?
-if [ $error -eq 1 ] || [ $error -eq 0]; then 
+if [ $error -eq 1 ] || [ $error -eq 0 ]; then 
 	
 	echo "~/.vim/bundle 已存在"
 	# clone plugin Vundle into ~/bundle/
