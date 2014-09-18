@@ -37,18 +37,18 @@ Plugin 'vim-scripts/minibufexpl.vim'
 " css颜色预览
 Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'othree/html5.vim'
-"Plugin 'rkumar/html.vim'
+Plugin 'rkumar/html.vim'
 
 " 头文件和源码切换  
 Plugin 'vim-scripts/a.vim'
 
 " 补全插件
 Plugin 'vim-scripts/OmniCppComplete'
-"终极补全插件 
+" 终极补全插件 
 Plugin 'Shougo/neocomplete.vim'
-"插入代码片段，辅助neocomplete
+" 插入代码片段，辅助neocomplete
 Plugin 'Shougo/neosnippet.vim'
-"一些代码片段仓库 for neosnippet
+" 一些代码片段仓库 for neosnippet
 Plugin 'Shougo/neosnippet-snippets'
 " 一些代码仓库 
 Plugin 'honza/vim-snippets'
@@ -60,6 +60,9 @@ call vundle#end()			"required
 filetype plugin indent on	"required
 " *****************Vundle配置结束******************
 
+" *****************一些自定义*********************
+
+set ruler
 " 颜色主题 
 colorscheme molokai
 
@@ -68,6 +71,48 @@ nmap ,s :source $HOME/.vimrc<cr>
 
 " 插入当前时间  
 nmap ,d "=strftime("%Y-%m-%d %H:%M:%S")<CR>p
+
+" 打开标签页面的个数
+set tabpagemax=5
+" 显示标签也:不显示(0),创建后显示(1),总是显示标签栏(2)
+set showtabline=1
+
+" 一些缩进设置  
+set cindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
+"set noexpandtab / expandtab
+set noexpandtab
+set list
+set listchars=tab:▸\ ,eol:¬
+
+" 关于折叠  
+set foldmethod=syntax
+set foldlevel=100	"关闭所有折叠(0),一些折叠关闭(正数),不折叠(很大)
+set foldcolumn=1	"0--12
+set noshowmode		"命令行不显示vim模式  
+"set mouse=a			"Enabl mouse 
+set foldopen=all	"光标所在自动打开折叠
+set foldclose=all	"光标移开自动关闭折叠
+
+" QuickFix设置  
+" 按下F6,执行make,并打开quickfix窗口，显示编译信息 
+map <F6> :make<CR><CR><CR> :copen<CR><CR> 
+" 按下<F7>,执行make clean  
+map <F7> :make clean<CR><CR><CR>
+" 按下<F8>,光标移到上一个错误所在行  
+map <F8> :cp<CR>
+" 按下<F9>,光标移到下一个错误所在行  
+map <F9> :cn<CR>
+
+" 关闭窗口
+" 关闭quickfix窗口  
+map cc :cclose<CR>
+" 关闭预览窗口  
+map pc :pclose<CR>
+
 
 " 显示/隐藏行号
 let s:num=1
@@ -109,7 +154,7 @@ endfunction
 nmap ,c :call Set_CursorColumn()<CR>
 
 
-" Vundle管理的插件的配置  
+"********************Vundle管理的插件的配置**************************
 " powerline配置  
 set laststatus=2
 set t_Co=256
@@ -156,7 +201,10 @@ let g:miniBufExplMapWindowNavVim = 1
 " 按下Ctrl+arrow，可以切换到当前窗口的上下左右窗口
 let g:miniBufExplMapWindowNavArrows = 1 
 " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
-let g:miniBufExplModSelTarget = 1       "
+let g:miniBufExplModSelTarget = 1       
+
+"禁用tab选项
+let g:no_html_tab_mapping = 'yes'
 
 " a.vim的配置
 inoremap <F10> <ESC>:A<CR>
