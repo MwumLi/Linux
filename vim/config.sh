@@ -1,22 +1,23 @@
 #!/bin/bash 
 
 # create~/.vim/bundle
-if mkdir -p ~/.vim/bundle >/dev/null ; then 
+mkdir -p ~/.vim/bundle 
+if [ $? -eq 1 ] || [$? -eq 0]; then 
+	
 	echo "~/.vim/bundle 已存在"
-	exit 1
+	# clone plugin Vundle into ~/bundle/
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	if [ $? -eq 0 ]; then 
+		echo "Vim管理插件Vundle安装成功"
+	else
+		echo "Vim管理插件Vundle安装失败"
+		echo "退出安装"
+		exit 1
+	fi
 else
-	echo "~/.vim/bundle 创建成功"
+	echo "~/.vim/bundle 创建失败"
 fi 
 
-# clone plugin Vundle into ~/bundle/
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-if [ $? -eq 0 ]; then 
-	echo "Vim管理插件Vundle安装成功"
-else
-	echo "Vim管理插件Vundle安装失败"
-	echo "退出安装"
-	exit 2
-fi
 
 # build vim config file
 cp ./.vimrc ~/.vimrc 
@@ -25,7 +26,7 @@ if [ $? -eq 0 ]; then
 else
 	echo "vim配置文件.Vimrc安装失败"
 	echo "退出安装"
-	exit 3
+	exit 2
 fi
 
 # build vim colorschem
