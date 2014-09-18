@@ -31,18 +31,18 @@ fi
 
 # build vim colorschem
 # create ~/.vim/colors
-if mkdir -p ~/.vim/colors >/dev/null ; then 
-	echo "~/.vim/colors 已存在"
+mkdir -p ~/.vim/colors 
+if [ $? -eq 1 ] || [$? -eq 0];then 
+	cp ./colors/molokai.vim ~/.vim/colors/ 
+	if [ $? -eq 0]; then 
+		echo "配色方案构建成功"
+		echo "如果你不喜欢，请你使用colorschem自定义"
+		echo "Linux内建scheme位于:/usr/share/vim/vim74/colors"
+	else
+		echo "配色方案构建失败"  
+	fi
 else
 	echo "~/.vim/colors 创建成功"
-fi
-cp ./colors/molokai.vim ~/.vim/colors/ 
-if [ $? -eq 0]; then 
-	echo "配色方案构建成功"
-	echo "如果你不喜欢，请你使用colorschem自定义"
-	echo "Linux内建scheme位于:/usr/share/vim/vim74/colors"
-else
-	echo "配色方案构建失败"  
 fi
 
 # create ~/.vim/doc 
