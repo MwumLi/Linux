@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/liluo/My_Home_page'
+let g:netrw_dirhist_2='/home/liluo/My_Home_page/_posts'
+let g:netrw_dirhist_3='/home/liluo/My_Home_page'
+let g:netrw_dirhist_4='/home/liluo/rd/rd_temp/LS'
+let g:netrw_dirhist_5='/home/liluo/rd/rd_temp/LS/hh'
+let g:netrw_dirhist_6='/home/rain/myblog/_posts'
