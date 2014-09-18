@@ -1,8 +1,10 @@
 #!/bin/bash 
 
+error=0
 # create~/.vim/bundle
 mkdir -p ~/.vim/bundle 
-if [ $? -eq 1 ] || [$? -eq 0]; then 
+error=$?
+if [ $error -eq 1 ] || [ $error -eq 0]; then 
 	
 	echo "~/.vim/bundle 已存在"
 	# clone plugin Vundle into ~/bundle/
@@ -32,7 +34,8 @@ fi
 # build vim colorschem
 # create ~/.vim/colors
 mkdir -p ~/.vim/colors 
-if [ $? -eq 1 ] || [$? -eq 0];then 
+error=$?
+if [ $error -eq 1 ] || [$error -eq 0];then 
 	cp ./colors/molokai.vim ~/.vim/colors/ 
 	if [ $? -eq 0]; then 
 		echo "配色方案构建成功"
