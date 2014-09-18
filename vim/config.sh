@@ -92,6 +92,9 @@ if [ $? -eq 0 ] ; then
 else
 	echo "中文帮助文档建立失败"
 fi
+# delete simplifie chinese doc
+cd -
+rm -r ./vimcdoc-1.9.0
 
 echo "至此，vim 配置完毕，请你在首次进入vim，切换到command模式"
 echo "输入PluginInstall"
