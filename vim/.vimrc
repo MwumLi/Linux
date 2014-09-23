@@ -154,6 +154,21 @@ endfunction
 nmap ,c :call Set_CursorColumn()<CR>
 
 
+" 显示中文/英文帮助  
+let s:lang=1
+set helplang=cn 
+function! Set_Help()
+	if exists("s:lang")
+		set helplang=en 
+		unlet s:lang
+	else
+		set helplang=cn 
+		let s:lang=1
+	endif
+endfunction
+
+nmap ,h :call Set_Help()<CR>
+
 "********************Vundle管理的插件的配置**************************
 " powerline配置  
 set laststatus=2
