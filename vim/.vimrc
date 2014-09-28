@@ -38,7 +38,12 @@ Plugin 'vim-scripts/minibufexpl.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'othree/html5.vim'
 Plugin 'rkumar/html.vim'
-
+"vimwiki--建立你自己的wiki
+Plugin 'vimwiki/vimwiki'
+"Calendar--日历插件
+Plugin 'MwumLi/Calendar.vim'
+"MRU--The Most Recently Used
+Plugin 'yegappan/mru'
 " 头文件和源码切换  
 Plugin 'vim-scripts/a.vim'
 
@@ -109,9 +114,11 @@ map <F9> :cn<CR>
 
 " 关闭窗口
 " 关闭quickfix窗口  
-map cc :cclose<CR>
+" map cc :cclose<CR>
 " 关闭预览窗口  
-map pc :pclose<CR>
+" map pc :pclose<CR>
+nmap qq :q!<CR>
+
 
 
 " 显示/隐藏行号
@@ -283,5 +290,34 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/' 
 
+" MRU配置
+" 最近编辑的文件列表被存放位置,默认~/.vim_mru_files
+let MRU_File=$HOME.'/.vim/vim_mru_file'
+" 保存的最大记录条数，默认100
+let MRU_Max_Entries=100
+" 添加不记录的文件类型和位置  
+let MRU_Exclude_Files='.*.swp'
+" 打开MRU窗口
+nmap mr :MRU<CR>
 
+" Calendar配置  
+nmap ca :Calendar<CR>
 
+" vimwiki配置  
+let g:vimwiki_list = [
+\ {'path': '~/.vimwiki/myWiki/', 
+\ 'path_html': '~/myWiki/', 
+\ 'template_path': '~/.vimwiki/vimwiki_template/', 
+\ 'template_default': 'def_template', 
+\ 'template_ext': '.tpl',
+\ 'diary_link_count': 5}]
+" 标记未完成的checklist项目会有特别的颜色  
+let g:vimwiki_hl_cb_checked = 1
+"是否在考虑字符串长度时考虑中文字符 
+let g:vimwiki_CJK_length = 1
+" 添加vimwiki中可以使用的html tags  
+let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1,input'
+
+map <F4> :Vimwiki2HTML<CR>
+map <Leader><F4> :VimwikiAll2HTML<CR>
+map vb :Vimwiki2HTMLBrowse<CR>
