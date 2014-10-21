@@ -18,7 +18,7 @@ cd /usr/include/ && sudo ctags ./*.h && cd - && cd /usr/include/c++/ && sudo cta
 
 # 配置vim
 cd ./vim
-/usr/bash ./config.sh
+/bin/bash ./config.sh
 if [ $? -eq 0 ]; then 
 	echo "Vim配置成功"
 else
