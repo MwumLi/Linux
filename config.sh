@@ -26,6 +26,18 @@ else
 fi
 cd -
 
+# 修改终端配色  
+bg_color="#07242E"
+fg_color="#708284"
+gtk3_path="/usr/share/themes/Ambiance/gtk-3.0/apps/gnome-terminal.css"
+gtk2_path="/usr/share/themes/Ambiance/gtk-2.0/apps/gnome-terminal.rc"
+sudo sed "5s/#[a-zA-Z0-9]\+/${bg_color}/" -i ${gtk3_path}
+sudo sed "7s/#[a-zA-Z0-9]\+/${fg_color}/" -i ${gtk3_path}
+sudo sed "36s/#[a-zA-Z0-9]\+/${bg_color}/" -i ${gtk2_path}
+sudo sed "37s/#[a-zA-Z0-9]\+/${fg_color}/" -i ${gtk2_path}
+echo "终端配色修改完成，重启或注销后生效"
+
+
 exit 0
 
 
