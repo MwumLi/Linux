@@ -22,4 +22,4 @@ My configuration for Linux ( mostly Ubuntu )
 
 5. 终端配色修改，只需修改`/config.sh`中`bg_color`和`fg_color`,分别改变背景颜色和默认前景色  
 
-
+6. 安装工具tree，用来查看目录树  
