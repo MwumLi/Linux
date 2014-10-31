@@ -90,8 +90,8 @@ set shiftwidth=4
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set noexpandtab / expandtab
 set noexpandtab
-set list
-set listchars=tab:▸\ ,eol:¬
+"set list
+"set listchars=tab:▸\ ,eol:¬
 
 " 关于折叠  
 set foldmethod=syntax
@@ -118,6 +118,8 @@ map <F9> :cn<CR>
 " 关闭预览窗口  
 " map pc :pclose<CR>
 nmap qq :q!<CR>
+nmap wq :wq!<CR>
+nmap sp :w!<CR>
 
 
 
