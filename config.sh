@@ -1,13 +1,15 @@
 #!/bin/bash 
 
 # 更新软件源
-sudo apt-get update 
+#sudo apt-get update 
 # 安装基本编译环境  
 sudo apt-get install build-essential
 # vim install
 sudo apt-get install vim vim-gtk
 # 安装ctags
 sudo apt-get install ctags
+# 安装vim-doc vim-scripts
+sudo apt-get install vim-doc vim-scripts
 # 安装git
 sudo apt-get install git
 # 安装tree
