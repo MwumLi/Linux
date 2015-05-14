@@ -190,6 +190,10 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_initial_foldlevel=1
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 
+" fencview配置  
+" 开启自动编码检测
+" let g:fencview_autodetect=1
+
 " taglist配置  
 let Tlist_Ctags_Cmd='ctags'	"taglist依赖于ctags.设置ctags位置  
 let Tlist_Use_Right_Window=0	"窗口显示位置:0(左边) 1(右边)
