@@ -193,6 +193,8 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 " fencview配置  
 " 开启自动编码检测
 " let g:fencview_autodetect=1
+" 当用正确的编码打开后，执行这个快捷键，转化编码为utf-8,并保存
+nmap ,t :set fenc=utf-8<CR>:w<CR>
 
 " taglist配置  
 let Tlist_Ctags_Cmd='ctags'	"taglist依赖于ctags.设置ctags位置  
